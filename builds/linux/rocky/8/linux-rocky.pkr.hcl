@@ -180,6 +180,7 @@ build {
       "--extra-vars", "BUILD_SECRET='${var.build_key}'",
       "--extra-vars", "ANSIBLE_USERNAME=${var.ansible_username}",
       "--extra-vars", "ANSIBLE_SECRET='${var.ansible_key}'",
+      "--scp-extra-args", "'-O'"
     ]
   }
 
