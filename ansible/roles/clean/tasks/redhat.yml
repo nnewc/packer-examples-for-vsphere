@@ -23,7 +23,7 @@
 - name: "Cleaning the Red Hat Subscription Manager logs."
   shell: |
     rm -rf /var/log/rhsm/*
-  when: "ansible_facts['distribution'] == 'RedHat'"
+  when: ansible_os_family in ['RedHat', 'Rocky']
 - name: "Cleaning the SSH host keys."
   shell: |
     rm -f /etc/ssh/ssh_host_*
@@ -37,6 +37,13 @@
   when: 'ansible_facts[''distribution_major_version''] >= "9"'
   shell: |
     truncate -s 0 /etc/machine-id
+- name: "Truncating hostname, hosts, resolv.conf and setting hostname to localhost"
+  shell: |
+    truncate -s 0 /etc/{hostname,hosts,resolv.conf}
+    hostnamectl set-hostname localhost
+- name: "Cleaning cloud-init"
+  shell: | 
+    cloud-init clean -s -l 
 - name: "Cleaning the shell history."
   shell: |
     unset HISTFILE

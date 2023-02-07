@@ -37,4 +37,14 @@
       - net-tools
       - unzip
       - ca-certificates
-    state: latest     # noqa package-latest
+      - bash-completion
+      - bind-utils
+    state: latest
+- name: "Install Rancher required packages"
+  yum:
+    name:
+    - cloud-init
+    - cloud-utils-growpart
+    - openssh-server
+    - open-vm-tools
+    state: latest
