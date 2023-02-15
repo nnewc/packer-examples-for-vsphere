@@ -48,3 +48,14 @@
     - openssh-server
     - open-vm-tools
     state: latest
+# - name: "Install RKE2 required packages"
+#   yum:
+#     name:
+#     - iscsi-initiator
+#     state: latest  
+- name: "Configure NetworkManager for RKE2"
+  copy:
+    dest: "/etc/NetworkManager/conf.d/rke2-canal.conf"
+    content: |
+      [keyfile]
+      unmanaged-devices=interface-name:cali*;interface-name:flannel*
