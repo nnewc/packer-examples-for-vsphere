@@ -7,9 +7,9 @@
   shell: |
     cat /dev/null > /etc/hostname
     hostnamectl set-hostname localhost
-- name: "Disabling SELinux."
-  shell: |
-    sudo sed -i 's/^SELINUX=enforcing/SELINUX=disabled/g' /etc/selinux/config
+# - name: "Disabling SELinux."
+#   shell: |
+#     sudo sed -i 's/^SELINUX=enforcing/SELINUX=disabled/g' /etc/selinux/config
 - name: "Restarting the SSH daemon."
   shell: |
     sudo systemctl restart sshd
