@@ -19,3 +19,8 @@
     subscription-manager unregister
     subscription-manager clean
   when: "ansible_facts['distribution'] == 'RedHat'"
+- name: "Disable firewalld"
+  shell: |
+    systemctl disable firewalld
+    systemctl stop firewalld
+  when: "ansible_facts['distribution'] == 'RedHat'"
