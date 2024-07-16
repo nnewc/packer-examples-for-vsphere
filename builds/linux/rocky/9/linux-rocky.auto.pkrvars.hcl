@@ -25,14 +25,14 @@ vm_cpu_cores             = 1
 vm_cpu_hot_add           = false
 vm_mem_size              = 2048
 vm_mem_hot_add           = false
-vm_disk_size             = 40960
+vm_disk_size             = 61440
 vm_disk_controller_type  = ["pvscsi"]
 vm_disk_thin_provisioned = true
 vm_network_card          = "vmxnet3"
 
 // Removable Media Settings
-iso_path           = "iso/linux/rocky"
-iso_file           = "Rocky-9.2-x86_64-dvd.iso"
+iso_path           = "ISO/Rocky"
+iso_file           = "Rocky-9.2-x86_64-minimal.iso"
 iso_checksum_type  = "sha256"
 iso_checksum_value = "cd43bb2671472471b1fc0a7a30113dfc9a56831516c46f4dbd12fb43bb4286d2"
 
